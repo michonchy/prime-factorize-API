@@ -23,7 +23,7 @@ Resources:
         PrimeFactorize:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /hello
+            Path: /prime-factorize
             Method: get
             RequestParameters:
               - method.request.querystring.numbers:
@@ -35,7 +35,7 @@ Outputs:
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   primefactorizeApi:
     Description: "API Gateway endpoint URL for Prod stage for Prime Factorize function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/prime-factorize/"
   PrimeFactorizeFunction:
     Description: "Prime Factorize Lambda Function ARN"
     Value: !GetAtt PrimeFactorizeFunction.Arn
